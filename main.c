@@ -59,7 +59,7 @@ int main(int argc, const char **argv) {
     // Loop through the image pixels
     //Creates a parallel region that works for both the outer and inner loop and uses dynamic scheduling
     //Inspiration for use of collapse(2) from https://stackoverflow.com/questions/13357065/how-does-openmp-handle-nested-loops
-    #pragma omp parallel for collapse(2) schedule(dynamic)
+    #pragma omp parallel for schedule(dynamic) collapse(2)
     for (int img_y = 0; img_y < Image_Height; img_y++) {
         for (int img_x = 0; img_x < Image_Width; img_x++) {
             // Find the value of C in the Mandelbrot range corresponding to this pixel
